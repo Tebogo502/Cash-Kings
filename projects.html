@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | Cash King Arts</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta name="description" content="Cash King Arts - Streetwear clothing, custom apparel, and printing services.">
+    <meta property="og:title" content="Cash King Arts - Streetwear & Printing">
+    <meta property="og:description" content="Shop streetwear, custom clothes, and get your own designs printed.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/">
+    <meta property="og:image" content="favicon.png">
+    <style>
+        nav ul {
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+        nav li {
+            margin: 0 4px;
+        }
+        header {
+            padding: 0 4vw;
+        }
+        section {
+            padding: 18px 4vw;
+        }
+        .project-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+        }
+        .project {
+            width: 260px;
+            min-width: 180px;
+        }
+        @media (max-width: 800px) {
+            nav ul {
+                gap: 10px;
+                font-size: 1em;
+            }
+            header h1 {
+                font-size: 1.4em;
+            }
+            section {
+                padding: 12px 2vw;
+            }
+            .project-list {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        @media (max-width: 500px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 6px;
+            }
+            header, section {
+                padding: 8px 2vw;
+            }
+            .project-list {
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="login file.html">Login</a></li>
+            <li><a href="register.html">Register</a></li>
+        </ul>
+    </nav>
+    <header style="background:linear-gradient(90deg,#232526,#6e8efb);color:#fff;padding:32px 0 24px 0;text-align:center;">
+        <h1 style="font-size:2.2em;letter-spacing:0.04em;">Cash King Arts</h1>
+        <p style="font-size:1.2em;max-width:600px;margin:0 auto;">Streetwear for the bold. Shop our latest drops, or get your own designs printed on premium apparel.</p>
+        <a href="#collections" style="display:inline-block;margin-top:18px;padding:12px 32px;background:#fff;color:#232526;font-weight:700;border-radius:8px;text-decoration:none;box-shadow:0 2px 8px rgba(110,142,251,0.10);transition:background 0.2s;">Shop Collections</a>
+    </header>
+    <section id="collections">
+        <h2>Featured Collections</h2>
+        <div class="project-list">
+            <div class="project" style="background:#fff;box-shadow:0 2px 8px rgba(110,142,251,0.10);border-radius:12px;">
+                <h3>Streetwear Tees</h3>
+                <img src="images/tee1.jpg" alt="Streetwear Tee" style="width:100%;border-radius:8px 8px 0 0;object-fit:cover;max-height:120px;">
+                <p>Bold, original t-shirt designs for every vibe.</p>
+                <button style="margin:8px 0 0 0;padding:8px 18px;background:#6e8efb;color:#fff;border:none;border-radius:6px;font-weight:600;cursor:pointer;">Shop Tees</button>
+            </div>
+            <div class="project" style="background:#fff;box-shadow:0 2px 8px rgba(110,142,251,0.10);border-radius:12px;">
+                <h3>Hoodies & Sweats</h3>
+                <img src="images/hoodie1.jpg" alt="Hoodie" style="width:100%;border-radius:8px 8px 0 0;object-fit:cover;max-height:120px;">
+                <p>Stay warm and stylish with our signature hoodies.</p>
+                <button style="margin:8px 0 0 0;padding:8px 18px;background:#6e8efb;color:#fff;border:none;border-radius:6px;font-weight:600;cursor:pointer;">Shop Hoodies</button>
+            </div>
+            <div class="project" style="background:#fff;box-shadow:0 2px 8px rgba(110,142,251,0.10);border-radius:12px;">
+                <h3>Custom Printing</h3>
+                <img src="images/print1.jpg" alt="Printing Service" style="width:100%;border-radius:8px 8px 0 0;object-fit:cover;max-height:120px;">
+                <p>Bring your own design and we'll print it on tees, hoodies, and more.</p>
+                <button style="margin:8px 0 0 0;padding:8px 18px;background:#232526;color:#fff;border:none;border-radius:6px;font-weight:600;cursor:pointer;">Get a Quote</button>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h2>Shop All Products</h2>
+        <input id="gallerySearch" type="text" placeholder="Search products..." style="width:100%;max-width:340px;margin:0 auto 18px auto;display:block;padding:10px 14px;border-radius:8px;border:1.5px solid #6e8efb;outline:none;">
+        <div id="galleryGrid" style="display:flex;flex-wrap:wrap;gap:18px;justify-content:center;margin-bottom:18px;"></div>
+    </section>
+    <button id="backToTop" style="position:fixed;bottom:32px;right:32px;display:none;padding:12px 18px;border-radius:50%;background:#6e8efb;color:#fff;border:none;box-shadow:0 2px 8px rgba(110,142,251,0.18);font-size:1.3em;z-index:1000;cursor:pointer;">&#8679;</button>
+    <footer>
+        <p>&copy; 2025 Tebogo Phashe. All rights reserved.</p>
+    </footer>
+    <script>
+    // Product grid data
+    const galleryImages = [
+        {src:'images/tee1.jpg', alt:'Cash King Tee', price:'R299'},
+        {src:'images/hoodie1.jpg', alt:'Signature Hoodie', price:'R499'},
+        {src:'images/print1.jpg', alt:'Custom Print Service', price:'From R99'},
+        {src:'images/tee2.jpg', alt:'Graffiti Tee', price:'R329'},
+        {src:'images/hoodie2.jpg', alt:'Classic Black Hoodie', price:'R499'},
+        {src:'images/tee3.jpg', alt:'Crown Logo Tee', price:'R299'}
+    ];
+    const galleryGrid = document.getElementById('galleryGrid');
+    const searchInput = document.getElementById('gallerySearch');
+    function renderGalleryGrid(filter='') {
+        galleryGrid.innerHTML = '';
+        galleryImages.forEach((img, i) => {
+            if (filter && !img.alt.toLowerCase().includes(filter.toLowerCase())) return;
+            const div = document.createElement('div');
+            div.style.position = 'relative';
+            div.style.width = '160px';
+            div.style.height = '200px';
+            div.style.borderRadius = '12px';
+            div.style.overflow = 'hidden';
+            div.style.boxShadow = '0 2px 8px rgba(110,142,251,0.10)';
+            div.style.background = '#fff';
+            div.style.display = 'flex';
+            div.style.flexDirection = 'column';
+            div.style.alignItems = 'center';
+            div.innerHTML = `
+                <img src="${img.src}" alt="${img.alt}" style="width:100%;height:120px;object-fit:cover;cursor:pointer;border-radius:12px 12px 0 0;">
+                <div style="padding:8px 0 0 0;font-weight:600;">${img.alt}</div>
+                <div style="color:#6e8efb;font-weight:700;">${img.price}</div>
+                <button class="share-btn" title="Share" style="position:absolute;bottom:8px;right:8px;background:rgba(255,255,255,0.92);border:none;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;"><i class="fa fa-share" style="color:#232526;"></i></button>
+            `;
+            // Share button logic
+            div.querySelector('.share-btn').onclick = function(e) {
+                e.stopPropagation();
+                const url = window.location.origin + '/' + img.src;
+                navigator.clipboard.writeText(url);
+                this.innerHTML = '<i class="fa fa-check" style="color:#6e8efb;"></i>';
+                setTimeout(()=>{this.innerHTML = '<i class="fa fa-share" style="color:#232526;"></i>';}, 1200);
+            };
+            galleryGrid.appendChild(div);
+        });
+    }
+    searchInput.oninput = function() {
+        renderGalleryGrid(this.value);
+    };
+    renderGalleryGrid();
+    // Back to Top button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', function() {
+        backToTop.style.display = window.scrollY > 200 ? 'block' : 'none';
+    });
+    backToTop.onclick = () => window.scrollTo({top:0,behavior:'smooth'});
+    // Smokey cursor effect (reusable for all pages)
+    (function() {
+        if (!document.querySelector('.smoke-cursor')) {
+            const smoke = document.createElement('div');
+            smoke.className = 'smoke-cursor';
+            document.body.appendChild(smoke);
+            document.addEventListener('mousemove', e => {
+                smoke.style.transform = `translate(${e.clientX - 24}px, ${e.clientY - 24}px)`;
+            });
+        }
+    })();
+    </script>
+</body>
+</html>

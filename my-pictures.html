@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Picture Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta name="description" content="Tebogo Phashe's creative portfolio: web development, design, gallery, and contact.">
+    <meta property="og:title" content="Tebogo Phashe Portfolio">
+    <meta property="og:description" content="Web development, design, gallery, and contact.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/">
+    <meta property="og:image" content="favicon.png">
+    <style>
+        nav ul {
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+        nav li {
+            margin: 0 4px;
+        }
+        header {
+            padding: 0 4vw;
+        }
+        section {
+            padding: 18px 4vw;
+        }
+        .carousel-3d-container {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .carousel-3d {
+            width: 100% !important;
+            max-width: 340px;
+            height: 220px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            justify-content: center;
+            margin-top: 24px;
+        }
+        .gallery img {
+            width: 220px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(110,142,251,0.10);
+            transition: transform 0.2s;
+        }
+        .gallery img:hover {
+            transform: scale(1.06);
+        }
+        @media (max-width: 800px) {
+            nav ul {
+                gap: 10px;
+                font-size: 1em;
+            }
+            header h1 {
+                font-size: 1.4em;
+            }
+            section {
+                padding: 12px 2vw;
+            }
+            .carousel-3d {
+                max-width: 98vw;
+                height: 160px;
+            }
+            .gallery img {
+                width: 140px;
+                height: 90px;
+            }
+        }
+        @media (max-width: 500px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 6px;
+            }
+            header, section {
+                padding: 8px 2vw;
+            }
+            .carousel-3d {
+                max-width: 98vw;
+                height: 110px;
+            }
+            .gallery img {
+                width: 90px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="login file.html">Login</a></li>
+            <li><a href="register.html">Register</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>My Picture Gallery</h1>
+        <p>Store and showcase your favorite pictures here.</p>
+    </header>
+    <section>
+        <div class="carousel-3d-container" style="display:flex; flex-direction:column; align-items:center;">
+            <div class="carousel-3d" id="carousel3d" style="position:relative; width:320px; height:220px; perspective:900px; margin-bottom:18px;">
+                <div class="carousel-3d-inner" id="carousel3dInner" style="width:100%; height:100%; position:absolute; left:0; top:0; transform-style:preserve-3d; transition:transform 0.7s cubic-bezier(.4,2,.6,1);">
+                    <img src="images/avengers_01.jpg" alt="Avenger 1" class="carousel-img" style="position:absolute; width:100%; height:100%; object-fit:cover; border-radius:12px; box-shadow:0 2px 8px rgba(110,142,251,0.10); cursor:pointer;">
+                    <img src="images/avengers_02.jpg" alt="Avenger 2" class="carousel-img" style="position:absolute; width:100%; height:100%; object-fit:cover; border-radius:12px; box-shadow:0 2px 8px rgba(110,142,251,0.10); cursor:pointer;">
+                    <img src="images/avengers_03.jpg" alt="Avenger 3" class="carousel-img" style="position:absolute; width:100%; height:100%; object-fit:cover; border-radius:12px; box-shadow:0 2px 8px rgba(110,142,251,0.10); cursor:pointer;">
+                    <img src="images/avengers_04.jpg" alt="Avenger 4" class="carousel-img" style="position:absolute; width:100%; height:100%; object-fit:cover; border-radius:12px; box-shadow:0 2px 8px rgba(110,142,251,0.10); cursor:pointer;">
+                    <img src="images/avengers_05.jpg" alt="Avenger 5" class="carousel-img" style="position:absolute; width:100%; height:100%; object-fit:cover; border-radius:12px; box-shadow:0 2px 8px rgba(110,142,251,0.10); cursor:pointer;">
+                    <img src="images/avengers_06.jpg" alt="Avenger 6" class="carousel-img" style="position:absolute; width:100%; height:100%; object-fit:cover; border-radius:12px; box-shadow:0 2px 8px rgba(110,142,251,0.10); cursor:pointer;">
+                </div>
+                <button id="prevBtn" style="position:absolute; left:0; top:50%; transform:translateY(-50%); background:#fff; border:none; border-radius:50%; width:38px; height:38px; font-size:1.5em; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.10);">&#10094;</button>
+                <button id="nextBtn" style="position:absolute; right:0; top:50%; transform:translateY(-50%); background:#fff; border:none; border-radius:50%; width:38px; height:38px; font-size:1.5em; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.10);">&#10095;</button>
+                <div style="position:absolute; bottom:8px; right:12px; display:flex; gap:10px; z-index:2;">
+                    <button id="downloadBtn" title="Download" style="background:rgba(255,255,255,0.92); border:none; border-radius:50%; width:36px; height:36px; display:flex; align-items:center; justify-content:center; cursor:pointer;"><i class="fa fa-download" style="color:#232526;"></i></button>
+                    <button id="likeBtn" title="Like" style="background:rgba(255,255,255,0.92); border:none; border-radius:50%; width:36px; height:36px; display:flex; align-items:center; justify-content:center; cursor:pointer;"><i id="likeIcon" class="fa fa-heart" style="color:#bbb;"></i></button>
+                </div>
+                <div id="carouselCounter" style="position:absolute; bottom:8px; left:12px; color:#232526; background:rgba(255,255,255,0.85); border-radius:8px; padding:2px 10px; font-size:1em; font-weight:600;">1 / 6</div>
+            </div>
+            <div id="sliderCaption" style="margin-top:12px; color:#232526; font-size:1.1em; font-weight:500;">Avenger 1</div>
+        </div>
+        <!-- Modal for fullscreen image -->
+        <div id="modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.92); align-items:center; justify-content:center; z-index:2000;">
+            <img id="modalImg" src="" alt="" style="max-width:90vw; max-height:80vh; border-radius:18px; box-shadow:0 4px 32px #000;">
+            <button id="closeModal" style="position:absolute; top:32px; right:32px; background:rgba(0,0,0,0.7); color:#fff; border:none; border-radius:50%; width:40px; height:40px; font-size:1.5em; cursor:pointer;">&times;</button>
+        </div>
+    </section>
+    <button id="backToTop" style="position:fixed;bottom:32px;right:32px;display:none;padding:12px 18px;border-radius:50%;background:#6e8efb;color:#fff;border:none;box-shadow:0 2px 8px rgba(110,142,251,0.18);font-size:1.3em;z-index:1000;cursor:pointer;">&#8679;</button>
+    <footer>
+        <p>&copy; 2025 Tebogo Phashe. All rights reserved.</p>
+    </footer>
+    <script>
+    // Back to Top button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', function() {
+        backToTop.style.display = window.scrollY > 200 ? 'block' : 'none';
+    });
+    backToTop.onclick = () => window.scrollTo({top:0,behavior:'smooth'});
+    // Smokey cursor effect (reusable for all pages)
+    (function() {
+        if (!document.querySelector('.smoke-cursor')) {
+            const smoke = document.createElement('div');
+            smoke.className = 'smoke-cursor';
+            document.body.appendChild(smoke);
+            document.addEventListener('mousemove', e => {
+                smoke.style.transform = `translate(${e.clientX - 24}px, ${e.clientY - 24}px)`;
+            });
+        }
+    })();
+    </script>
+    <script>
+        const images = [
+            {src: 'images/avengers_01.jpg', alt: 'Avenger 1'},
+            {src: 'images/avengers_02.jpg', alt: 'Avenger 2'},
+            {src: 'images/avengers_03.jpg', alt: 'Avenger 3'},
+            {src: 'images/avengers_04.jpg', alt: 'Avenger 4'},
+            {src: 'images/avengers_05.jpg', alt: 'Avenger 5'},
+            {src: 'images/avengers_06.jpg', alt: 'Avenger 6'}
+        ];
+        const N = images.length;
+        let current = 0;
+        const carouselInner = document.getElementById('carousel3dInner');
+        const sliderCaption = document.getElementById('sliderCaption');
+        const counter = document.getElementById('carouselCounter');
+        const likeBtn = document.getElementById('likeBtn');
+        const likeIcon = document.getElementById('likeIcon');
+        const downloadBtn = document.getElementById('downloadBtn');
+        // Modal elements
+        const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modalImg');
+        const closeModal = document.getElementById('closeModal');
+        // Like state (localStorage)
+        let liked = JSON.parse(localStorage.getItem('galleryLikes')||'[]');
+        function updateLikeBtn() {
+            if (liked.includes(current)) {
+                likeIcon.style.color = '#e74c3c';
+            } else {
+                likeIcon.style.color = '#bbb';
+            }
+        }
+        function updateCarousel() {
+            const angle = 360 / N;
+            carouselInner.style.transform = `translateZ(-400px) rotateY(${-current * angle}deg)`;
+            sliderCaption.innerText = images[current].alt;
+            counter.innerText = `${current+1} / ${N}`;
+            updateLikeBtn();
+        }
+        // Position images in 3D circle
+        Array.from(carouselInner.children).forEach((img, i) => {
+            const angle = 360 / N * i;
+            img.style.transform = `rotateY(${angle}deg) translateZ(400px)`;
+            img.onclick = () => {
+                modalImg.src = images[i].src;
+                modalImg.alt = images[i].alt;
+                modal.style.display = 'flex';
+            };
+        });
+        document.getElementById('prevBtn').onclick = () => {
+            current = (current - 1 + N) % N;
+            updateCarousel();
+        };
+        document.getElementById('nextBtn').onclick = () => {
+            current = (current + 1) % N;
+            updateCarousel();
+        };
+        likeBtn.onclick = () => {
+            if (liked.includes(current)) {
+                liked = liked.filter(idx => idx !== current);
+            } else {
+                liked.push(current);
+            }
+            localStorage.setItem('galleryLikes', JSON.stringify(liked));
+            updateLikeBtn();
+        };
+        downloadBtn.onclick = () => {
+            const a = document.createElement('a');
+            a.href = images[current].src;
+            a.download = images[current].alt.replace(/\s+/g,'_')+".jpg";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        };
+        closeModal.onclick = () => {
+            modal.style.display = 'none';
+        };
+        modal.onclick = (e) => {
+            if (e.target === modal) modal.style.display = 'none';
+        };
+        updateCarousel();
+    </script>
+    <script>
+    // Smokey cursor effect (reusable for all pages)
+    (function() {
+        if (!document.querySelector('.smoke-cursor')) {
+            const smoke = document.createElement('div');
+            smoke.className = 'smoke-cursor';
+            document.body.appendChild(smoke);
+            document.addEventListener('mousemove', e => {
+                smoke.style.transform = `translate(${e.clientX - 24}px, ${e.clientY - 24}px)`;
+            });
+        }
+    })();
+    </script>
+</body>
+</html>
