@@ -1,0 +1,134 @@
+/* Smokey Cursor Effect - More Visible */
+.smoke-cursor {
+    pointer-events: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(80,80,80,0.25) 0%, rgba(60,60,60,0.18) 60%, transparent 100%);
+    box-shadow: 0 0 32px 12px rgba(60,60,60,0.18), 0 0 0 2px rgba(53, 100, 136, 0.533) inset;
+    z-index: 9999;
+    transition: transform 0.10s cubic-bezier(.4,2,.6,1), opacity 0.18s;
+    opacity: 0.95;
+    mix-blend-mode: lighten;
+    border: 1.5px solid #0f3587;
+}
+body {
+    cursor: none !important;
+}
+body {
+    margin: 0;
+    background: #111;
+    min-height: 100vh;
+    position: relative;
+    color: #f3f3f3;
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    letter-spacing: 0.01em;
+    font-size: 1.08em;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    color: #fff;
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+}
+a {
+    color: #6e8efb;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+a:hover {
+    color: #a777e3;
+}
+section, form, .project-list, .project {
+    background: rgba(30,30,30,0.92) !important;
+    color: #f3f3f3 !important;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+}
+nav {
+    background: #6e8efb;
+    padding: 16px 0;
+    box-shadow: 0 2px 8px rgba(110,142,251,0.10);
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin: 0;
+    padding: 0;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: color 0.2s;
+}
+nav a:hover {
+    color: #232526;
+}
+nav {
+    backdrop-filter: blur (30px);
+    box-shadow: 0px 0px 30px rgba(227,228,237,0.37);
+    border: 2px solid rgba(255, 255, 255, 0.18);
+}
+header {
+    text-align: center;
+    margin: 48px 0 24px 0;
+}
+header h1 {
+    font-size: 2.2em;
+    color: #232526;
+}
+header p {
+    color: #6e8efb;
+    font-size: 1.2em;
+}
+section {
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    background: #f6f7fa;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(110,142,251,0.10);
+    padding: 32px 24px;
+}
+.project-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+}
+.project {
+    background: #f6f7fa;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(110,142,251,0.10);
+    padding: 20px 18px;
+    width: 260px;
+}
+.project h3 {
+    margin-top: 0;
+    color: #6e8efb;
+}
+footer {
+    text-align: center;
+    color: #aaa;
+    padding: 18px 0 10px 0;
+    font-size: 1em;
+}
+@media (max-width: 800px) {
+    .project-list {
+        flex-direction: column;
+        align-items: center;
+    }
+    section {
+        padding: 18px 6vw;
+    }
+}
